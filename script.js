@@ -17,6 +17,8 @@ const paisesMaisPopulosos = [
 // Armazena items da lista
 const itensDaLista = [];
 
+let indiceInicioArraste;
+
 // Insere items da lista no DOM
 function criarLista() {
     [...paisesMaisPopulosos]
@@ -40,7 +42,22 @@ function criarLista() {
 
             listaOrdenavel.appendChild(item);
         });
+
+    adicionarDetectoresDeEventos();
 }
 
 criarLista();
-console.log(listaOrdenavel);
+
+function iniciarArraste() {
+    //console.log("Evento: ", "dragstart");
+    indiceInicioArraste = +this.closest("li").getAttribute("data-indice");
+    console.log(indiceInicioArraste);
+}
+
+function adicionarDetectoresDeEventos() {
+    const arrastaveis = document.querySelectorAll(".arrastavel");
+
+    arrastaveis.forEach((arrastavel) => {
+        arrastavel.addEventListener("dragstart", iniciarArraste);
+    });
+}
