@@ -103,3 +103,18 @@ function adicionarDetectoresDeEventos() {
         item.addEventListener("dragover", emCima);
     });
 }
+
+function checarOrdem() {
+    itensDaLista.forEach((item, indice) => {
+        const nomePais = item.querySelector(".arrastavel").innerText.trim();
+
+        if (nomePais !== paisesMaisPopulosos[indice]) {
+            item.classList.add("incorreto");
+        } else {
+            item.classList.remove("incorreto");
+            item.classList.add("correto");
+        }
+    });
+}
+
+checar.addEventListener("click", checarOrdem);
