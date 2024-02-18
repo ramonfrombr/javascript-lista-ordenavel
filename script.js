@@ -70,7 +70,20 @@ function emCima(e) {
 
 function soltar(e) {
     //console.log("Event:", e.type);
+    const indiceFimArraste = +this.getAttribute("data-indice");
+
+    trocarItens(indiceInicioArraste, indiceFimArraste);
+
     this.classList.remove("em-cima");
+}
+
+// Troca itens da lista que foram arrastado e soltado em cima
+function trocarItens(indiceOrigem, indiceDestino) {
+    const itemUm = itensDaLista[indiceOrigem].querySelector(".arrastavel");
+    const itemDois = itensDaLista[indiceDestino].querySelector(".arrastavel");
+
+    itensDaLista[indiceOrigem].appendChild(itemDois);
+    itensDaLista[indiceDestino].appendChild(itemUm);
 }
 
 function adicionarDetectoresDeEventos() {
