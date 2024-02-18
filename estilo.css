@@ -48,7 +48,7 @@ body {
     width: 60px;
 }
 
-.lista-ordenavel li.over .arrastavel {
+.lista-ordenavel li.em-cima .arrastavel {
     background-color: #eaeaea;
 }
 
@@ -56,11 +56,11 @@ body {
     margin: 0 20px 0 0;
 }
 
-.lista-ordenavel li.right .nome-pais {
+.lista-ordenavel li.correto .nome-pais {
     color: #3ae374;
 }
 
-.lista-ordenavel li.wrong .nome-pais {
+.lista-ordenavel li.incorreto .nome-pais {
     color: #ff3838;
 }
 

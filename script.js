@@ -48,16 +48,27 @@ function criarLista() {
 
 criarLista();
 
-function iniciarArraste() {
-    //console.log("Evento: ", "dragstart");
+function iniciarArraste(e) {
+    //console.log("Evento: ", e.type);
     indiceInicioArraste = +this.closest("li").getAttribute("data-indice");
-    console.log(indiceInicioArraste);
+}
+
+function encostar(e) {
+    //console.log("Event: ", e.type);
+    this.classList.add("em-cima");
 }
 
 function adicionarDetectoresDeEventos() {
     const arrastaveis = document.querySelectorAll(".arrastavel");
+    const itensListaOrdenavel = document.querySelectorAll(
+        ".lista-ordenavel li"
+    );
 
     arrastaveis.forEach((arrastavel) => {
         arrastavel.addEventListener("dragstart", iniciarArraste);
+    });
+
+    itensListaOrdenavel.forEach((item) => {
+        item.addEventListener("dragenter", encostar);
     });
 }
