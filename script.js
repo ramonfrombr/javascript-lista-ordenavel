@@ -58,6 +58,11 @@ function encostar(e) {
     this.classList.add("em-cima");
 }
 
+function desencostar(e) {
+    //console.log("Event: ", e.type);
+    this.classList.remove("em-cima");
+}
+
 function adicionarDetectoresDeEventos() {
     const arrastaveis = document.querySelectorAll(".arrastavel");
     const itensListaOrdenavel = document.querySelectorAll(
@@ -70,5 +75,6 @@ function adicionarDetectoresDeEventos() {
 
     itensListaOrdenavel.forEach((item) => {
         item.addEventListener("dragenter", encostar);
+        item.addEventListener("dragleave", desencostar);
     });
 }
