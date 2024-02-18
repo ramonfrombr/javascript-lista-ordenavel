@@ -63,6 +63,16 @@ function desencostar(e) {
     this.classList.remove("em-cima");
 }
 
+function emCima(e) {
+    // console.log("Event: ", e.type);
+    e.preventDefault();
+}
+
+function soltar(e) {
+    //console.log("Event:", e.type);
+    this.classList.remove("em-cima");
+}
+
 function adicionarDetectoresDeEventos() {
     const arrastaveis = document.querySelectorAll(".arrastavel");
     const itensListaOrdenavel = document.querySelectorAll(
@@ -76,5 +86,7 @@ function adicionarDetectoresDeEventos() {
     itensListaOrdenavel.forEach((item) => {
         item.addEventListener("dragenter", encostar);
         item.addEventListener("dragleave", desencostar);
+        item.addEventListener("drop", soltar);
+        item.addEventListener("dragover", emCima);
     });
 }
